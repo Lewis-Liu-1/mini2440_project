@@ -102,6 +102,60 @@ should see following print out on picocom terminal
 ```
 First step 'Hello world' has achieved.
 
+** Tag v1.0 contains above code 
+
+## Boot Linux Kernel by using above boot loader
+* Now we will read Linux kernel from NAND, save it to ram location 0x30008000
+* As our current bootloader running at 0x33000000, we should not mess up with ram data.
+* from mini2440 find zimage_xx binaries, write to NAND by using boot from NOR flash option
+```
+[k] Download linux kernel 
+```
+* from PC, run following command
+
+```
+sudo ./s3c2410_boot_usb zImage_W35 
+```
+zimage will be write to NAND kernel location.
+
+Now run following command from uboot folder on PC
+```
+make
+make install
+```
+Set switch to NAND position, power off and on, now Linux will boot from NAND.
+
+```
+**********mini-boot for mini2440**********
+now booting linux from nand flash ...
+g_page_type: 2
+Use default linux command line
+load Image of Linux...
+
+Ok
+Uncompressing Linux................................................................................................................................................... done, booting the kernel.
+Linux version 2.6.32.2-FriendlyARM (root@localhost.localdomain) (gcc version 4.4.3 (ctng-1.6.1) ) #18 Wed Apr 13 20:06:31 HKT 2011
+CPU: ARM920T [41129200] revision 0 (ARMv4T), cr=c0007177
+CPU: VIVT data cache, VIVT instruction cache
+Machine: FriendlyARM Mini2440 development board
+ATAG_INITRD is deprecated; please update your bootloader.
+Memory policy: ECC disabled, Data cache writeback
+CPU S3C2440A (id 0x32440001)
+S3C24XX Clocks, (c) 2004 Simtec Electronics
+S3C244X: core 400.000 MHz, memory 100.000 MHz, peripheral 50.000 MHz
+CLOCK: Slow mode (1.500 MHz), fast, MPLL on, UPLL on
+Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 16256
+Kernel command line: root=/dev/mtdblock3 console=ttySAC0,115200 mem=64M init=/linuxrc
+PID hash table entries: 256 (order: -2, 1024 bytes)
+Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
+Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
+Memory: 64MB = 64MB total
+Memory: 60084KB available (4176K code, 451K data, 156K init, 0K highmem)
+SLUB: Genslabs=11, HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+Hierarchical RCU implementation.
+```
+Tag v2.0 will contains above code
+
 ## Help
 
 
