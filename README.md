@@ -36,7 +36,7 @@ ldr r0, =0x33000000					//@ check link file for exact location
 
 * Once nand has copy all the code to RAM, our application will from main
 ```
-ldr pc, =main<br/>
+ldr pc, =main
 ```
 it will load 'main' symbol's location which should be something like 0x33000xxx, then run from there.
 
