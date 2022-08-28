@@ -94,7 +94,7 @@ RECEIVED FILE SIZE:    1538 (1KB/S, 1S)
 Downloaded file at 0x30000000, size = 1528 bytes
 Write to flash ok: skipped size = 0x0, size = 0x5f8
 ```
-*Set SW2 switch to NAND position, power off and on mini2440
+* Set SW2 switch to NAND position, power off and on mini2440
 should see following print out on picocom terminal
 
 ```
