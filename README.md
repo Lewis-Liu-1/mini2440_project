@@ -19,11 +19,11 @@ It has a boot selection switch, you can first power up from NOR flash, load prog
 * Our bootloader will looks like exceed this 4k range, so at link file uboot.lds, we put start/built-in.o at top of .text section.
 
 ```
-	. = 0x33000000;
-	.text :{
-		start/built-in.o
-		*(.text)
-	}	
+. = 0x33000000;
+.text :{
+	start/built-in.o
+	*(.text)
+}	
 ```
 
 this will make sure no matter the bootloader size, start/built-in.o code will be run first.
@@ -36,7 +36,7 @@ ldr r0, =0x33000000					//@ check link file for exact location
 
 * Once nand has copy all the code to RAM, our application will from main
 ```
-	ldr pc, =main<br/>
+ldr pc, =main<br/>
 ```
 it will load 'main' symbol's location which should be something like 0x33000xxx, then run from there.
 
