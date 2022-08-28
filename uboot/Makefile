@@ -19,8 +19,7 @@ export CC LD AR OBJCOPY OBJDUMP INCLUDEDIR CFLAGS CPPFLAGS
 
 export BUILT_IN_OBJ 
 
-SUBDIRS =  start main
-# device lib app main
+SUBDIRS =  start main lib device app 
 SUBOBJS := $(foreach n, $(SUBDIRS), $(n)/$(BUILT_IN_OBJ))
 
 all: $(APP).bin $(APP).dis
