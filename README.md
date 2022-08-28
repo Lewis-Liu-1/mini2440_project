@@ -9,11 +9,13 @@ But it didn't explain why using following line at start.S<br/>
 </code>
 
 at uboot.lds<br/>
+<code>
 	. = 0x33000000;<br/>
 	.text :{<br/>
 		start/built-in.o<br/>
 		*(.text)<br/>
 	}	<br/>
+</code>
 Above lines in uboot.lds will make sure folder start's files (extension .S and .c) will be build<br/>
 at start location 0x33000000<br/>
 <br/>
@@ -25,8 +27,9 @@ this will make sure no matter the bootloader size, start/built-in.o code will be
 <br/>
 start.S will initialize clock, read code from NAND, copy them(100k?) to ram, location is 0x33000000<br/>
 at following line in start.S<br/>
-		ldr pc, =main<br/>
-
+	<code>
+	ldr pc, =main<br/>
+	</code>
 it will load 'main' symbol's location which should be something like 0x33000xxx, then run from there.<br/>
 <br/>
 Therefore, link file will have to link all code start from 0x33000000, main symbol will set to 0x33000xxx<br/>
