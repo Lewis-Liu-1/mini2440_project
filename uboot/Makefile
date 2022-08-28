@@ -46,4 +46,4 @@ clean:
 	done
 	
 install:
-	sudo /home/lyl/t5/develop/mini2440/tool/s3c2410_boot_usb uboot.bin
+	sudo ../tool/s3c2410_boot_usb uboot.bin
