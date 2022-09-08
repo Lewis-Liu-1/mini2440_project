@@ -1,3 +1,11 @@
+# C and C++ learning by examples
 
-* Learn C++ cookbook
- https://www.learncpp.com/cpp-tutorial/class-template-argument-deduction-ctad-and-deduction-guides/
+## Getting Started
+* Ref:  https://www.learncpp.com/cpp-tutorial/class-template-argument-deduction-ctad-and-deduction-guides/
+
+
+```
+make clean
+make
+```
+
