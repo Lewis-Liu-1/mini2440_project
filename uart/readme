@@ -1,0 +1,31 @@
+
+## FROM MINI2440
+##### FriendlyARM BIOS 2.0 for 2440 #####
+[x] format NAND FLASH for Linux
+[v] Download vivi 
+[k] Download linux kernel 
+[y] Download root_yaffs image 
+[a] Absolute User Application
+[n] Download Nboot for WinCE 
+[l] Download WinCE boot-logo
+[w] Download WinCE NK.bin 
+[d] Download & Run 
+[z] Download zImage into RAM 
+[g] Boot linux from RAM 
+[f] Format the nand flash 
+[b] Boot the system 
+[s] Set the boot parameters 
+[u] Backup NAND Flash to HOST through USB(upload) 
+[r] Restore NAND Flash from HOST through USB 
+[q] Goto shell of vivi 
+[i] Version: 1138-2K
+Enter your selection: a
+USB host is connected. Waiting a download.
+
+## FROM PC
+sudo ./s3c2410_boot_usb uart.bin 
+[sudo] password for lyl: 
+csum = 0x1651
+send_file: addr = 0x33f80000, len = 0x0000024c
+
+

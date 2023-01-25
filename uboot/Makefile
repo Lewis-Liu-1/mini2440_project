@@ -1,13 +1,16 @@
 APP=uboot
 
-CROSS_COMPILE = arm-none-linux-gnueabi-
-#arm-lwm-linux-gnueabi-
-CC		= $(CROSS_COMPILE)gcc
-LD		= $(CROSS_COMPILE)ld
-AR		= $(CROSS_COMPILE)ar
+CROSS_COMPILE = arm-none-eabi-
+#arm-none-linux-gnueabi-
+COMPILER=arm-none-eabi-
 
-OBJCOPY	= $(CROSS_COMPILE)objcopy
-OBJDUMP	= $(CROSS_COMPILE)objdump
+#arm-lwm-linux-gnueabi-
+CC		= ${CROSS_COMPILE}gcc
+LD		= ${CROSS_COMPILE}ld
+AR		= ${CROSS_COMPILE}ar
+
+OBJCOPY	= ${CROSS_COMPILE}objcopy
+OBJDUMP	= ${CROSS_COMPILE}objdump
 
 INCLUDEDIR	:= $(shell pwd)/include
 CFLAGS		:= -Wall -O2 -nostdlib
