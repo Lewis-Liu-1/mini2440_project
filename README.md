@@ -17,6 +17,33 @@ u-boot-2014.04-mini2440-master
   sudo apt-get install zlib1g:i386
   make CROSS_COMPILE=arm-linux-
 ```
+# Install uboot to mini2440
+boot from NOR flash
+[q] select q, into supervivi screen
+```
+Supervivi> load ram 0x32000000 242332 u
+USB host is connected. Waiting a download.
+```
+From PC
+```
+sudo ./s3c2410_boot_usb u-boot.bin 
+```
+```
+Now, Downloading [ADDRESS:32000000h,TOTAL:242342]
+RECEIVED FILE SIZE:  242342 (236KB/S, 1S)
+Downloaded file at 0x32000000, size = 242332 bytes
+Supervivi> go 0x32000000
+```
+nand scrub
+press n and enter
+
+nand createbbt
+press n and enter
+
+nand write 0x31000000 u-boot
+
+```
+Now boot from NAND flash
 
 # mini2440_project
 
