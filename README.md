@@ -34,15 +34,16 @@ RECEIVED FILE SIZE:  242342 (236KB/S, 1S)
 Downloaded file at 0x32000000, size = 242332 bytes
 Supervivi> go 0x32000000
 ```
-nand scrub
+
+```nand scrub```
 press n and enter
 
-nand createbbt
+```nand createbbt```
 press n and enter
 
-nand write 0x31000000 u-boot
+```nand write 0x31000000 u-boot```
 
-```
+
 Now boot from NAND flash
 
 # mini2440_project
