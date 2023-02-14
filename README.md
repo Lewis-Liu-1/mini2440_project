@@ -2,17 +2,21 @@
 u-boot-2014.04-mini2440-master
 
 # Install toolchain 
-'''  tar xvzf arm-linux-gcc-4.4.3.tgz –C /'''
-''' gedit /root/.bashrc
+```  
+  tar xvzf arm-linux-gcc-4.4.3.tgz –C /
+  gedit /root/.bashrc
   edit ~/.bashrc
-  export PATH=$PATH:/opt/FriendlyARM/toolschain/4.4.3/bin'''
+  export PATH=$PATH:/opt/FriendlyARM/toolschain/4.4.3/bin
+```
   
 # build uboot
+```
   make mini2440_config
   make
   make CROSS_COMPILE=arm-linux-
   sudo apt-get install zlib1g:i386
   make CROSS_COMPILE=arm-linux-
+```
 
 # mini2440_project
 
