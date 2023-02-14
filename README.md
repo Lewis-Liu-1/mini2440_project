@@ -1,12 +1,13 @@
-#Find project at github
+# Find project at github
 u-boot-2014.04-mini2440-master
 
-#Install toolchain 
-  tar xvzf arm-linux-gcc-4.4.3.tgz –C /
-* gedit /root/.bashrc
+# Install toolchain 
+'''  tar xvzf arm-linux-gcc-4.4.3.tgz –C /'''
+''' gedit /root/.bashrc
   edit ~/.bashrc
-  export PATH=$PATH:/opt/FriendlyARM/toolschain/4.4.3/bin
-#build uboot
+  export PATH=$PATH:/opt/FriendlyARM/toolschain/4.4.3/bin'''
+  
+# build uboot
   make mini2440_config
   make
   make CROSS_COMPILE=arm-linux-
