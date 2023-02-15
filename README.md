@@ -118,6 +118,41 @@ Uncompressing Linux.............................................................
 Linux version 2.6.32.2-FriendlyARM (lyl@lyl-Latitude-5480) (gcc version 4.4.3 (ctng-1.6.1) ) #1 Wed Feb 15 10:56:32 AEDT 2023
 
 ```
+
+# Uboot environment
+```
+MINI2440 # printenv
+bootargs=root=/dev/mtdblock3 rootfstype=jffs2 console=ttySAC0,115200
+bootdelay=3
+baudrate=115200
+ethaddr=08:08:11:18:12:27
+netmask=255.255.255.0
+usbtty=cdc_acm
+mini2440=mini2440=0tb
+bootargs_base=console=ttySAC0,115200 noinitrd
+bootargs_init=init=/sbin/init
+root_nand=root=/dev/mtdblock3 rootfstype=jffs2
+root_mmc=root=/dev/mmcblk0p2 rootdelay=2
+root_nfs=/mnt/nfs
+set_root_nfs=setenv root_nfs root=/dev/nfs rw nfsroot=${serverip}:${root_nfs}
+ifconfig_static=run setenv ifconfig ip=${ipaddr}:${serverip}::${netmask}:mini2440:eth0
+ifconfig_dhcp=run setenv ifconfig ip=dhcp
+ifconfig=ip=dhcp
+set_bootargs_mmc=setenv bootargs ${bootargs_base} ${bootargs_init} ${mini2440} ${root_mmc}
+set_bootargs_nand=setenv bootargs ${bootargs_base} ${bootargs_init} ${mini2440} ${root_nand}
+set_bootargs_nfs=run set_root_nfs; setenv bootargs ${bootargs_base} ${bootargs_init} ${mini2440} ${root_nfs} ${ifconfig}
+mtdids=nand0=mini2440-nand
+mtdparts=mtdparts=mini2440-nand:0x00040000(u-boot),0x00020000(u-boot_env),0x00500000(kernel),0x0faa0000(rootfs)
+bootcmd=nboot.e kernel;bootm
+ipaddr=192.168.1.60
+serverip=192.168.1.50
+partition=nand0,0
+mtddevnum=0
+mtddevname=u-boot
+
+Environment size: 1151/131068 bytes
+```
+
 # mini2440_project
 
 This project will explain mini2440 bootloader, from start to boot Linux kernel
