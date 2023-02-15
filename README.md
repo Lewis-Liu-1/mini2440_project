@@ -17,6 +17,14 @@ u-boot-2014.04-mini2440-master
   sudo apt-get install zlib1g:i386
   make CROSS_COMPILE=arm-linux-
 ```
+# build kernel
+```
+cp config_mini2440_w35 .config
+make uImage
+```
+new kernel is at arch/arm/boot/
+copy uImage to /srv/tftp folder, prepare for uboot tftpboot
+
 # Install uboot to mini2440
 boot from NOR flash
 [q] select q, into supervivi screen
