@@ -68,7 +68,56 @@ NAND write: device 0 offset 0x60000, size 0x2332620
 
 Bad block at 0xe0000 in erase block from 0xe0000 will be skipped
 ```
+# Try booting new kernel
+```
+Writing data at 0x23b2000 -- 100% complete.
+ 36906528 bytes written: OK
+MINI2440 # setenv bootcmd 'nboot.e kernel;bootm'
+MINI2440 # savenv
+Unknown command 'savenv' - try 'help'
+MINI2440 # saveenv
+Saving Environment to NAND...
+Erasing Nand...Writing to Nand... done
+MINI2440 # reset�
 
+U-Boot 1.3.2-mini2440 (Oct  6 2009 - 12:51:09)
+
+I2C:   ready
+DRAM:  64 MB
+Flash:  2 MB
+NAND:  128 MiB
+Found Environment offset in OOB..
+USB:   S3C2410 USB Deviced
+In:    serial
+Out:   serial
+Err:   serial
+MAC: 08:08:11:18:12:27
+Hit any key to stop autoboot:  0 
+
+Loading from NAND 128MiB 3,3V 8-bit, offset 0x60000
+   Image Name:   Linux-2.6.32.2-FriendlyARM
+   Created:      2023-02-15   0:00:23 UTC
+   Image Type:   ARM Linux Kernel Image (uncompressed)
+   Data Size:    2332556 Bytes =  2.2 MB
+   Load Address: 30008000
+   Entry Point:  30008000
+## Booting kernel from Legacy Image at 32000000 ...
+   Image Name:   Linux-2.6.32.2-FriendlyARM
+   Created:      2023-02-15   0:00:23 UTC
+   Image Type:   ARM Linux Kernel Image (uncompressed)
+   Data Size:    2332556 Bytes =  2.2 MB
+   Load Address: 30008000
+   Entry Point:  30008000
+   Verifying Checksum ... OK
+   Loading Kernel Image ... OK
+OK
+
+Starting kernel ...
+
+Uncompressing Linux...................................................................................................................................................... done, booting the kernel.
+Linux version 2.6.32.2-FriendlyARM (lyl@lyl-Latitude-5480) (gcc version 4.4.3 (ctng-1.6.1) ) #1 Wed Feb 15 10:56:32 AEDT 2023
+
+```
 # mini2440_project
 
 This project will explain mini2440 bootloader, from start to boot Linux kernel
