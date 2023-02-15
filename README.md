@@ -20,6 +20,8 @@ u-boot-2014.04-mini2440-master
 # build kernel
 ```
 cp config_mini2440_w35 .config
+update friendly_arm_default_nand_part in mach-mini24490.c file for partition tables.
+
 make uImage
 ```
 new kernel is at arch/arm/boot/
