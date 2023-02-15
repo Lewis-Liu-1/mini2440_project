@@ -46,6 +46,29 @@ press n and enter
 
 Now boot from NAND flash
 
+# write uImage to kernel partition
+```
+MINI2440 # setenv ipaddr 192.168.1.60
+MINI2440 # setenv serverip 192.168.1.8
+MINI2440 # tftp 32000000 uImage
+dm9000 i/o: 0x20000300, id: 0x90000a46 
+DM9000: running in 16 bit mode
+MAC: 08:08:11:18:12:27
+TFTP from server 192.168.1.8; our IP address is 192.168.1.60
+Filename 'uImage'.
+Load address: 0x32000000
+Loading: T #################################################################
+	 #################################################################
+	 #############################
+done
+Bytes transferred = 2332620 (2397cc hex)
+MINI2440 # nand write.e 32000000 60000 2332620
+
+NAND write: device 0 offset 0x60000, size 0x2332620
+
+Bad block at 0xe0000 in erase block from 0xe0000 will be skipped
+```
+
 # mini2440_project
 
 This project will explain mini2440 bootloader, from start to boot Linux kernel
