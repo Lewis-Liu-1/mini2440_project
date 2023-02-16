@@ -128,6 +128,10 @@ Uncompressing Linux.............................................................
 Linux version 2.6.32.2-FriendlyARM (lyl@lyl-Latitude-5480) (gcc version 4.4.3 (ctng-1.6.1) ) #1 Wed Feb 15 10:56:32 AEDT 2023
 
 ```
+# Jffs2 file system
+```
+nand write.jffs2 0x31000000 root ${filesize}
+```
 
 # Uboot environment
 ```
